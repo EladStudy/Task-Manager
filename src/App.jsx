@@ -56,23 +56,23 @@ export default function App() {
   // ================================================================
 
   function getAllTasks(tasks) {
-    // TODO
+    return tasks;
   }
 
   function getIncompleteTasks(tasks) {
-    // TODO
+    return tasks.filter(task => task.completed === false);
   }
 
   function findTaskByTitle(tasks, title) {
-    // TODO
+    return tasks.find(task => task.title.toLowerCase().includes(title.toLowerCase()));
   }
 
   function countCompletedTasks(tasks) {
-    // TODO
+    return tasks.filter(task => task.completed === true).length;
   }
 
   function addTask(tasks, newTask) {
-    // TODO
+    return [{ ...tasks, newTask }];
   }
 
   function removeTask(tasks, id) {
@@ -261,7 +261,7 @@ export default function App() {
             </button>
           </div>
         </form>
-    
+
         {showCompletedCount && (
           <div className="count-card">
             <span>משימות שהושלמו</span>
@@ -342,9 +342,8 @@ export default function App() {
                 <div className="task-card-top">
                   <span className="task-id">#{task.id}</span>
                   <span
-                    className={`status-badge ${
-                      task.completed ? "completed" : "open"
-                    }`}
+                    className={`status-badge ${task.completed ? "completed" : "open"
+                      }`}
                   >
                     {task.completed ? "הושלמה" : "לא הושלמה"}
                   </span>
