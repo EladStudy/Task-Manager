@@ -72,19 +72,30 @@ export default function App() {
   }
 
   function addTask(tasks, newTask) {
-    return [{ ...tasks, newTask }];
+    return [...tasks, newTask];
   }
 
   function removeTask(tasks, id) {
-    // TODO
+    return tasks.filter(task => task.id !== id);
   }
 
   function toggleTaskCompleted(tasks, id) {
-    // TODO
+    return tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, completed: !task.completed }
+      }
+      return task;
+    });
   }
 
   function updateTaskPriority(tasks, id, newPriority) {
-    // TODO
+    return tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, priority: newPriority }
+      } else {
+        return task;
+      }
+    });
   }
 
   // ================================================================
